@@ -15,13 +15,19 @@ public class SuperheroService {
     }
 
     public Superhero getSuperhero(String name, String universe){
-        if(null != name){
-            return getByName(name);
-//        } else if (null != universe){
-//            return getByUniverse(universe);
-        } else{
-            throw new RuntimeException("Not found");
+//        if(null != name){
+//            return getByName(name);
+////        } else if (null != universe){
+////            return getByUniverse(universe);
+//        } else{
+//            throw new RuntimeException("Not found");
+//        }
+
+        Superhero superhero = superheroRepository.findByName(name) ;
+        if (null == superhero) {
+            superhero = superheroRepository.findByUniverse(universe);
         }
+        return superhero;
     }
 
     private Superhero getByName(String name){

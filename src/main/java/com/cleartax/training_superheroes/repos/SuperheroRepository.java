@@ -9,4 +9,9 @@ public interface SuperheroRepository extends MongoRepository<Superhero, String> 
 //    void deleteByName(String name);
 //
 //    Optional<Superhero> findByName(String name);
+
+    Superhero findByName(String name);
+    void deleteByName(String name);
+
+    Superhero findByUniverse(String universe);
 }
